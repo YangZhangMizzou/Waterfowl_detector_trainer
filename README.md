@@ -61,12 +61,12 @@ pip install progress
 ```
 ## Dataset preparation
 
-The datasets arrangement for yolonas, yolov5 and fasterrcnn are different. we prepare a sample dataset for each models. They can be downloaded from [here](). Please unzip them into folder dataset. 
+The datasets arrangement for yolonas, yolov5 and fasterrcnn are different. we prepare a sample dataset for each models. They can be downloaded from [here](https://drive.google.com/file/d/1ihQHkPfZ-IhSa5bmvoVmeuVo9GtKdd1r/view?usp=sharing). Please unzip them into folder dataset. 
 If you want to prepare your customized dataset for training, check github repositories [yolonas](https://github.com/Deci-AI/super-gradients/blob/master/YOLONAS.md), [yolov5](https://github.com/ultralytics/yolov5) and [fasterrcnn](https://github.com/jwyang/faster-rcnn.pytorch) for details.
 
 ## Pretrained Weight
 
-For fast model converge, we also provide pretrained weight of yolo5, yolonas and fasterrcnn which are pretrained by our 15m waterfowl detection datasets. Pretrained weight can be downloaded [here](). Please unzip them into folder pretrained_weights. 
+For fast model converge, we also provide pretrained weight of yolo5, yolonas and fasterrcnn which are pretrained by our 15m waterfowl detection datasets. Pretrained weight can be downloaded [here](https://drive.google.com/file/d/1zRMwYgwUnp5q0dnFEH_b0oTpglP3AJJn/view?usp=sharing). Please unzip them into folder pretrained_weights. 
 
 ## Run the Scripts:
 After you finish the data preparation and the installation of our software, you can run the following commands to start training for yolonas, yolov5 and fasterrcnn. Training result will be saved in folder result.
