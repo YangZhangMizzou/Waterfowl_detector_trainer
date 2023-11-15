@@ -51,8 +51,6 @@ Just run this command and all set for YOLOV5
 pip install -r requirements.txt
 ```
 
-
-
 ### Install dependency for YoloNAS
 
 ```
@@ -61,89 +59,31 @@ pip install setuptools==59.5.0
 pip install tensorboardX
 pip install progress
 ```
+## Dataset preparation
 
-## input format
-This script requires a speical format of input describes below
-```
-Image_folder (eg Bird_A)
-├── image_name1.jpg
-├── image_name1.txt # if want to evaluate
-├── image_name1.txt # if want to evaluate on classificaiton
-└── ...
-```
-## Run all experiments:
-You can easily run all experiments on the drone_collection dataset (all heights, habitats, datasets) with a single command. Please follow the procedures carefully:
+The datasets arrangement for yolonas, yolov5 and fasterrcnn are different. we prepare a sample dataset for each models. They can be downloaded from here(https://drive.google.com/file/d/1nwzvAKL_fBVeFviAeDub3tpSmx-p_3ME/view?usp=share_link). Please unzip them into folder dataset. 
+If you want to prepare your customized dataset for training, check github repositories yolonas, yolov5 and fasterrcnn for details.
 
-1. Download [example_images.zip](https://drive.google.com/file/d/1nwzvAKL_fBVeFviAeDub3tpSmx-p_3ME/view?usp=share_link) and then extract all subfolders to **example_images** folder. 
-2. Download [checkpoints.zip](https://drive.google.com/file/d/1gCochdduiTb7sxrAkGTR-DS_YZTEmbLi/view?usp=drive_link) and then extract all subfolders to **checkpoint** folder 
-3. change directory to Waterfowl_detector_pipeline and run:
-```
-python multi_inference.py
-```
+## Pretrained Weight
 
-The inference may take a long time. Please be patient.
+For fast model converge, we also provide pretrained weight of yolo5, yolonas and fasterrcnn which are pretrained by our 15m waterfowl detection datasets. Pretrained weight can be downloaded here. Please unzip them into folder pretrained_weights. 
 
 ## Run the Scripts:
-Once you have the input file ready and the correct virtual environment set up, you can use the file inference_image_height.py to start inferring the images. Here's a quick example of the full command:
+After you finish the data preparation and the installation of our software, you can run the following commands to start training for yolonas, yolov5 and fasterrcnn. Training result will be saved in folder result.
+
+Training for yolonas
 ```
-python inference_image_height.py \
---det_model retinanet \
---image_root ./example_images/Bird_A \
---image_ext jpg \
---out_dir ./result/retinanet/Bird_A \
---evaluate False \
+python train_yolonas.py
+```
+Training for yolov5
+```
+python train_yolov5.py
+```
+Training for fasterrcnn
+```
+python train_fasterrcnn.py
 ```
 
-
-The description of each command are as follows:
-```
---det_model: name of the detection model. You can select from yolo5, fasterrcnn, retinanetknn, retinanet, megadetector, and yolonas.
---cla_model: name of the classification model. You can select from res18 and mixmatch.
---image_root: specify where the input images are stored.
---image_ext: image extension of the target images, default is 'JPG'.
---image_date: specify the date the image was taken; this will be stored as description data.
---image_location: where the image is taken; this will be stored as description data.
---csv_root: The root dir where image info is stored.
---out_dir: where the output file will be generated. By default, it will create a 'Result' folder under the current directory.
---evaluate: whether we want to evaluate the result. This can only be done when the input file comes with a groundTruth file; default is false.
-```
-## Output format
-When you specify the output dir, you shall expecting the output in the following:
-```
-Result folder 
-├── detection-results
-│   ├── image_name1.txt
-│   ├── image_name2.txt
-│   ├── image_name3.txt
-│   └── ...
-├── visualize-results
-│   ├── image_name1.jpg
-│   ├── image_name2.jpg
-│   ├── image_name3.jpg
-│   └── ...
-├── configs.json
-├── detection_summary.csv
-├── f1_score.jpg    #if apply evaluation
-└── mAP.jpg         #if apply evaluation
-
-detection_summary contains three types of data:
-Description data includes input info of the image such as image_name, date, altitude.
-Metadata includes metadata read from the image metadata (if applicable).
-Sample results are shown below:
-Detection data: includes the number of birds detected and time spent inferring that image (including visualization).
-
-Each txt file under detection_results file contains detected bounding boxes in the following format:
-  category, confidence score, x1, y1, x2, y2
-Sorted in confidence descending order.
-```
-When the user chooses to detect waterfowl only, the visualization of the result should look like this. Rectangles represent TP (True Positive), triangles represent FP (False Positive), and ovals represent FN (False Negative).
-![I_DJI_0261](https://github.com/YangZhangMizzou/Waterfowl_detector_pipeline_final/assets/47132186/65b4ada5-ddce-483b-814e-e7c0d4473ffe)
-
-When the user chooses to detect and classify waterfowl, the visualization of the result should look like this. Blue rectangles represent TP with correct class prediction, while green represent TP with incorrect class prediction
-![DJI_0055](https://github.com/YangZhangMizzou/Waterfowl_detector_pipeline_final/assets/47132186/c5d5778b-369b-4071-a3e3-a6c41ff36cdb)
-
-We generate confusion matrix to illustrate accuracy across different classes
-![confusion_matrix](https://github.com/YangZhangMizzou/Waterfowl_detector_pipeline_final/assets/47132186/c68eab59-9c74-4a9a-b641-736cee1aed25)
 
 
 
