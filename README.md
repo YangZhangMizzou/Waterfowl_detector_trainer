@@ -69,7 +69,7 @@ If you want to prepare your customized dataset for training, check github reposi
 For fast model converge, we also provide pretrained weight of yolo5, yolonas and fasterrcnn which are pretrained by our 15m waterfowl detection datasets. Pretrained weight can be downloaded here. Please unzip them into folder pretrained_weights. 
 
 ## Run the Scripts:
-After you finish the data preparation and the installation of our software, you can run the following commands to start training for yolonas, yolov5 and fasterrcnn. Training result will be saved in folder result.
+After you finish the data preparation and the installation of our software, you can run the following commands to start training for [yolonas](https://github.com/Deci-AI/super-gradients/blob/master/YOLONAS.md), [yolov5](https://github.com/ultralytics/yolov5) and [fasterrcnn](https://github.com/jwyang/faster-rcnn.pytorch). Training result will be saved in folder result.
 
 Training for yolonas
 ```
