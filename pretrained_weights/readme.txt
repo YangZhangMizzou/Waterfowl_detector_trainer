@@ -1,0 +1,1 @@
+Download pretrained_weight.zip and unzip here
