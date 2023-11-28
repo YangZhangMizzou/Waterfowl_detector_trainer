@@ -10,7 +10,7 @@ Support is available only for the Linux Ubuntu system, and it can be used within
 ### Clone the repository
 You can use the command line to clone the repository:
 ```
-git clone https://github.com/YangZhangMizzou/Waterfowl_detector_pipeline_final.git
+git clone https://github.com/YangZhangMizzou/Waterfowl_detector_trainer.git
 ```
 
 ### Create virtual environment
